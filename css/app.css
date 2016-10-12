@@ -1,0 +1,24 @@
+.cut-top-fill {
+  width: 50vw;
+  right: 0;
+  left: inherit;
+  top: -80px;
+  border-right: 80px solid white;
+  border-left: 80px solid white;
+  border-top: 80px solid white;
+  content: ' ';
+  position: absolute;
+  z-index: 1;
+}
+.cut-top {
+  border-right-width: 50vw;
+}
+
+@media (max-width: 892px) {
+  .cut-top-fill {
+    display: none;
+  }
+  .cut-top {
+      border-right-width: 100vw;
+  }
+}
