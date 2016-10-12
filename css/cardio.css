@@ -7,6 +7,9 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.navbar-brand img{
+	width: 35%;
+}
 
 .parallax {
 	position: absolute;
@@ -1109,8 +1112,3 @@ footer .social-footer li:hover a {
 		padding-top: 0;
 	}
 }
-
-
-
-
-
