@@ -26,14 +26,16 @@ jQuery(function ($) {
         tokenSeparators: [",", " "],
         dropdownParent: $("#modalSaveSkills"),
         ajax: {
-            url: "http://hiring.noders.com/tags",
-            dataType: "jsonp",
-            processResults: function (data) {
-                console.log("asdasdasd");
+            url: "http://localhost:3015/tags",
+            data: function (params) {
                 return {
-                    results: $.map(data, function (item) {
-                        return {id: item.id, text: item.tagName};
-                    })
+                    searchString: encodeURI(params.term)
+                };
+            },
+            dataType: "json",
+            processResults: function (data, params) {
+                return {
+                    results: data.map(function(item){ return {id: item.id, text: item.tagName } })
                 };
             }
         }
