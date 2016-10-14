@@ -26,7 +26,7 @@ jQuery(function ($) {
         tokenSeparators: [",", " "],
         dropdownParent: $("#modalSaveSkills"),
         ajax: {
-            url: endpoint+"tags",
+            url: endpoint+"tagsByString",
             data: function (params) {
                 return {
                     searchString: encodeURI(params.term)
