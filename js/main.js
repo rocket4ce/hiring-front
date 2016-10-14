@@ -1,6 +1,7 @@
 jQuery(function ($) {
     "use strict";
     // Author Code Here
+    var endpoint = "http://localhost:3015/";
     var lock = new Auth0Lock("tqhw2IpXKyjWpj6YtCze0jxGukTlaM3w", "fforres.auth0.com");
 
     lock.on("authenticated", function (authResult) {
@@ -17,7 +18,6 @@ jQuery(function ($) {
         });
     });
 
-
     $("#sltSkills").select2({
         tags: true,
         placeholder: "Select a skills",
@@ -26,7 +26,7 @@ jQuery(function ($) {
         tokenSeparators: [",", " "],
         dropdownParent: $("#modalSaveSkills"),
         ajax: {
-            url: "http://localhost:3015/tags",
+            url: endpoint+"tags",
             data: function (params) {
                 return {
                     searchString: encodeURI(params.term)
@@ -45,6 +45,21 @@ jQuery(function ($) {
         lock.show();
     });
 
+    $("#frmSaveSkills").on("submit", function(e){
+        e.preventDefault();
+        var skills = $("#sltSkills").val();
+        var postData = {
+            linkedinId: localStorage.getItem("idToken"),
+            tags: JSON.stringify(skills),
+            linkedinData: JSON.stringify(localStorage.getItem("profile"))
+        };
+
+        $.post(endpoint+"linkedin", postData, function(resp){
+            console.log(resp);
+            $("#modalSaveSkills").modal("hide");
+            $("#modalSavedSkills").modal("show");
+        });
+    });
     var owlPricing;
     var ratio = 2;
 

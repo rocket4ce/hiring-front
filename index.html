@@ -377,13 +377,24 @@
 	<div class="modal fade" id="modalSaveSkills" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
-				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
+				<a href="#" class="close-link" data-dismiss="modal" aria-label="Close"><i class="icon_close_alt2"></i></a>
 				<h3 class="white">Sign Up</h3>
-				<form action="" class="popup-form">
+				<form action="" class="popup-form" id="frmSaveSkills">
 					<select name="sltSkills" id="sltSkills" class="form-control form-white" multiple></select>
 
 					<button type="submit" class="btn btn-submit">Submit</button>
 				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalSavedSkills" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="#" class="close-link" data-dismiss="modal" aria-label="Close"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">Registro Completado!, te mantendremos informado!</h3>
+				<button type="button" class="btn btn-submit" data-dismiss="modal" aria-label="Close">Cerrar</button>
+
 			</div>
 		</div>
 	</div>
